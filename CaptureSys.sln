@@ -1,0 +1,128 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+
+# === API GATEWAY ===
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", "{A1000000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway.Api", "src\ApiGateway\ApiGateway.Api\ApiGateway.Api.csproj", "{A1100000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway.Application", "src\ApiGateway\ApiGateway.Application\ApiGateway.Application.csproj", "{A1200000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway.Domain", "src\ApiGateway\ApiGateway.Domain\ApiGateway.Domain.csproj", "{A1300000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway.Infrastructure", "src\ApiGateway\ApiGateway.Infrastructure\ApiGateway.Infrastructure.csproj", "{A1400000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway.Tests", "src\ApiGateway\ApiGateway.Tests\ApiGateway.Tests.csproj", "{A1500000-0000-0000-0000-000000000001}"
+EndProject
+
+# === AUTH SERVICE ===
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway.Auth", "Gateway.Auth", "{B1000000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway.Auth.Api", "src\Gateway.Auth\Gateway.Auth.Api\Gateway.Auth.Api.csproj", "{B1100000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway.Auth.Application", "src\Gateway.Auth\Gateway.Auth.Application\Gateway.Auth.Application.csproj", "{B1200000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway.Auth.Domain", "src\Gateway.Auth\Gateway.Auth.Domain\Gateway.Auth.Domain.csproj", "{B1300000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway.Auth.Infrastructure", "src\Gateway.Auth\Gateway.Auth.Infrastructure\Gateway.Auth.Infrastructure.csproj", "{B1400000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway.Auth.Tests", "src\Gateway.Auth\Gateway.Auth.Tests\Gateway.Auth.Tests.csproj", "{B1500000-0000-0000-0000-000000000001}"
+EndProject
+
+# === UI SERVICES ===
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI Services", "UI Services", "{C0000000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompletionUI.Api", "src\CompletionUI\CompletionUI.Api\CompletionUI.Api.csproj", "{C1000000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdministrationUI.Api", "src\AdministrationUI\AdministrationUI.Api\AdministrationUI.Api.csproj", "{C2000000-0000-0000-0000-000000000001}"
+EndProject
+
+# === CORE SERVICES ===
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core Services", "Core Services", "{D0000000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngestionService.Api", "src\IngestionService\IngestionService.Api\IngestionService.Api.csproj", "{D1000000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageProcessorService.Api", "src\ImageProcessorService\ImageProcessorService.Api\ImageProcessorService.Api.csproj", "{D2000000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcrService.Api", "src\OcrService\OcrService.Api\OcrService.Api.csproj", "{D3000000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassificationService.Api", "src\ClassificationService\ClassificationService.Api\ClassificationService.Api.csproj", "{D4000000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractionService.Api", "src\ExtractionService\ExtractionService.Api\ExtractionService.Api.csproj", "{D5000000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptExecutionService.Api", "src\ScriptExecutionService\ScriptExecutionService.Api\ScriptExecutionService.Api.csproj", "{D6000000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExportService.Api", "src\ExportService\ExportService.Api\ExportService.Api.csproj", "{D7000000-0000-0000-0000-000000000001}"
+EndProject
+
+# === BACKGROUND SERVICES ===
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Background Services", "Background Services", "{E0000000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimerService.Api", "src\TimerService\TimerService.Api\TimerService.Api.csproj", "{E1000000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLearningService.Api", "src\AutoLearningService\AutoLearningService.Api\AutoLearningService.Api.csproj", "{E2000000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Worker.Orchestrator.Api", "src\Worker.Orchestrator\Worker.Orchestrator.Api\Worker.Orchestrator.Api.csproj", "{E3000000-0000-0000-0000-000000000001}"
+EndProject
+
+# === SHARED LIBRARIES ===
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{F0000000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Contracts", "shared\Contracts\Shared.Contracts.csproj", "{F1000000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Utilities", "shared\Utilities\Shared.Utilities.csproj", "{F2000000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Common", "shared\Common\Shared.Common.csproj", "{F3000000-0000-0000-0000-000000000001}"
+EndProject
+
+# === TESTS ===
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{T0000000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integration.Tests", "tests\Integration\Integration.Tests.csproj", "{T1000000-0000-0000-0000-000000000001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadTests", "tests\LoadTests\LoadTests.csproj", "{T2000000-0000-0000-0000-000000000001}"
+EndProject
+
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1100000-0000-0000-0000-000000000001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1100000-0000-0000-0000-000000000001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1100000-0000-0000-0000-000000000001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1100000-0000-0000-0000-000000000001}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A1100000-0000-0000-0000-000000000001} = {A1000000-0000-0000-0000-000000000001}
+		{A1200000-0000-0000-0000-000000000001} = {A1000000-0000-0000-0000-000000000001}
+		{A1300000-0000-0000-0000-000000000001} = {A1000000-0000-0000-0000-000000000001}
+		{A1400000-0000-0000-0000-000000000001} = {A1000000-0000-0000-0000-000000000001}
+		{A1500000-0000-0000-0000-000000000001} = {A1000000-0000-0000-0000-000000000001}
+		{B1100000-0000-0000-0000-000000000001} = {B1000000-0000-0000-0000-000000000001}
+		{B1200000-0000-0000-0000-000000000001} = {B1000000-0000-0000-0000-000000000001}
+		{B1300000-0000-0000-0000-000000000001} = {B1000000-0000-0000-0000-000000000001}
+		{B1400000-0000-0000-0000-000000000001} = {B1000000-0000-0000-0000-000000000001}
+		{B1500000-0000-0000-0000-000000000001} = {B1000000-0000-0000-0000-000000000001}
+		{C1000000-0000-0000-0000-000000000001} = {C0000000-0000-0000-0000-000000000001}
+		{C2000000-0000-0000-0000-000000000001} = {C0000000-0000-0000-0000-000000000001}
+		{D1000000-0000-0000-0000-000000000001} = {D0000000-0000-0000-0000-000000000001}
+		{D2000000-0000-0000-0000-000000000001} = {D0000000-0000-0000-0000-000000000001}
+		{D3000000-0000-0000-0000-000000000001} = {D0000000-0000-0000-0000-000000000001}
+		{D4000000-0000-0000-0000-000000000001} = {D0000000-0000-0000-0000-000000000001}
+		{D5000000-0000-0000-0000-000000000001} = {D0000000-0000-0000-0000-000000000001}
+		{D6000000-0000-0000-0000-000000000001} = {D0000000-0000-0000-0000-000000000001}
+		{D7000000-0000-0000-0000-000000000001} = {D0000000-0000-0000-0000-000000000001}
+		{E1000000-0000-0000-0000-000000000001} = {E0000000-0000-0000-0000-000000000001}
+		{E2000000-0000-0000-0000-000000000001} = {E0000000-0000-0000-0000-000000000001}
+		{E3000000-0000-0000-0000-000000000001} = {E0000000-0000-0000-0000-000000000001}
+		{F1000000-0000-0000-0000-000000000001} = {F0000000-0000-0000-0000-000000000001}
+		{F2000000-0000-0000-0000-000000000001} = {F0000000-0000-0000-0000-000000000001}
+		{F3000000-0000-0000-0000-000000000001} = {F0000000-0000-0000-0000-000000000001}
+		{T1000000-0000-0000-0000-000000000001} = {T0000000-0000-0000-0000-000000000001}
+		{T2000000-0000-0000-0000-000000000001} = {T0000000-0000-0000-0000-000000000001}
+	EndGlobalSection
+EndGlobal

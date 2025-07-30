@@ -1,0 +1,163 @@
+version: '3.8'
+
+services:
+  # === DATABASE ===
+  postgres:
+    image: postgres:16-alpine
+    container_name: capturesys-postgres
+    environment:
+      POSTGRES_DB: capturesys
+      POSTGRES_USER: capturesys_user
+      POSTGRES_PASSWORD: capturesys_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ../db/init:/docker-entrypoint-initdb.d
+    networks:
+      - capturesys-network
+
+  # === MESSAGE BROKER ===
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: capturesys-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: capturesys
+      RABBITMQ_DEFAULT_PASS: capturesys_password
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - capturesys-network
+
+  # === REDIS CACHE ===
+  redis:
+    image: redis:7-alpine
+    container_name: capturesys-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - capturesys-network
+
+  # === API GATEWAY ===
+  apigateway:
+    build:
+      context: ..
+      dockerfile: src/ApiGateway/ApiGateway.Api/Dockerfile
+    container_name: capturesys-apigateway
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=capturesys;Username=capturesys_user;Password=capturesys_password
+      - RabbitMQ__ConnectionString=amqp://capturesys:capturesys_password@rabbitmq:5672
+      - Redis__ConnectionString=redis:6379
+    depends_on:
+      - postgres
+      - rabbitmq
+      - redis
+    networks:
+      - capturesys-network
+    volumes:
+      - ../recognition-projects:/app/recognition-projects:ro
+
+  # === AUTH SERVICE ===
+  auth-service:
+    build:
+      context: ..
+      dockerfile: src/Gateway.Auth/Gateway.Auth.Api/Dockerfile
+    container_name: capturesys-auth
+    ports:
+      - "8081:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=capturesys;Username=capturesys_user;Password=capturesys_password
+    depends_on:
+      - postgres
+    networks:
+      - capturesys-network
+
+  # === CORE SERVICES ===
+  ingestion-service:
+    build:
+      context: ..
+      dockerfile: src/IngestionService/IngestionService.Api/Dockerfile
+    container_name: capturesys-ingestion
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=capturesys;Username=capturesys_user;Password=capturesys_password
+      - RabbitMQ__ConnectionString=amqp://capturesys:capturesys_password@rabbitmq:5672
+    depends_on:
+      - postgres
+      - rabbitmq
+    networks:
+      - capturesys-network
+    volumes:
+      - ../recognition-projects:/app/recognition-projects:ro
+      - ingestion_data:/app/data
+
+  ocr-service:
+    build:
+      context: ..
+      dockerfile: src/OcrService/OcrService.Api/Dockerfile
+    container_name: capturesys-ocr
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=capturesys;Username=capturesys_user;Password=capturesys_password
+      - RabbitMQ__ConnectionString=amqp://capturesys:capturesys_password@rabbitmq:5672
+    depends_on:
+      - postgres
+      - rabbitmq
+    networks:
+      - capturesys-network
+    volumes:
+      - ../recognition-projects:/app/recognition-projects:ro
+
+  # === UI SERVICES ===
+  completion-ui:
+    build:
+      context: ..
+      dockerfile: src/CompletionUI/CompletionUI.Api/Dockerfile
+    container_name: capturesys-completion-ui
+    ports:
+      - "8082:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=capturesys;Username=capturesys_user;Password=capturesys_password
+      - ApiGateway__BaseUrl=http://apigateway:8080
+    depends_on:
+      - postgres
+      - apigateway
+    networks:
+      - capturesys-network
+
+  administration-ui:
+    build:
+      context: ..
+      dockerfile: src/AdministrationUI/AdministrationUI.Api/Dockerfile
+    container_name: capturesys-admin-ui
+    ports:
+      - "8083:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=capturesys;Username=capturesys_user;Password=capturesys_password
+      - ApiGateway__BaseUrl=http://apigateway:8080
+    depends_on:
+      - postgres
+      - apigateway
+    networks:
+      - capturesys-network
+
+volumes:
+  postgres_data:
+  rabbitmq_data:
+  redis_data:
+  ingestion_data:
+
+networks:
+  capturesys-network:
+    driver: bridge

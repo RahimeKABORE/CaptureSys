@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>CaptureSys.IngestionService.Api</RootNamespace>
+    <AssemblyName>CaptureSys.IngestionService.Api</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IngestionService.Application\IngestionService.Application.csproj" />
+    <ProjectReference Include="..\IngestionService.Infrastructure\IngestionService.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\..\shared\Shared.csproj" />
+  </ItemGroup>
+
+</Project>

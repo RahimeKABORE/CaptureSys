@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>CaptureSys.OcrService.Api</RootNamespace>
+    <AssemblyName>CaptureSys.OcrService.Api</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OcrService.Application\OcrService.Application.csproj" />
+    <ProjectReference Include="..\OcrService.Infrastructure\OcrService.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\..\shared\Shared.csproj" />
+  </ItemGroup>
+
+</Project>

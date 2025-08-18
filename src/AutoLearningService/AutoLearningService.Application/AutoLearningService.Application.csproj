@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>CaptureSys.AutoLearningService.Application</RootNamespace>
+    <AssemblyName>CaptureSys.AutoLearningService.Application</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AutoLearningService.Domain\AutoLearningService.Domain.csproj" />
+    <ProjectReference Include="..\..\..\shared\Shared.csproj" />
+  </ItemGroup>
+
+</Project>

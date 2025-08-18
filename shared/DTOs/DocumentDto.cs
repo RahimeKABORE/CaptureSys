@@ -17,7 +17,7 @@ public record DocumentDto
     public string? DocumentType { get; init; }
     
     [Required]
-    public DocumentStatus Status { get; init; } = DocumentStatus.Ingested;
+    public DocumentStatus Status { get; init; } = DocumentStatus.Uploaded;
     
     public Guid BatchId { get; init; }
     
@@ -53,16 +53,10 @@ public record DocumentDto
 /// </summary>
 public enum DocumentStatus
 {
-    Ingested = 1,
-    ImageProcessing = 2,
-    OcrProcessing = 3,
-    Classifying = 4,
-    Extracting = 5,
-    ValidationRequired = 6,
-    Validated = 7,
-    ScriptProcessing = 8,
-    Exporting = 9,
-    Completed = 10,
-    Failed = 11,
-    Cancelled = 12
+    Uploaded = 1,
+    Ingested = 2,
+    Processing = 3,
+    Completed = 4,
+    Failed = 5,
+    Cancelled = 6
 }

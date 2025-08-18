@@ -1,0 +1,7 @@
+HTTP/1.1 415 Unsupported Media Type
+Content-Type: application/problem+json; charset=utf-8
+Date: Wed, 13 Aug 2025 12:07:14 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.16","title":"Unsupported Media Type","status":415,"traceId":"00-e5da33664ca739c9f3fa95f8091201ee-4de8a29113575339-00"}

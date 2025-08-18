@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>CaptureSys.ImageProcessorService.Infrastructure</RootNamespace>
+    <AssemblyName>CaptureSys.ImageProcessorService.Infrastructure</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ImageProcessorService.Application\ImageProcessorService.Application.csproj" />
+    <ProjectReference Include="..\ImageProcessorService.Domain\ImageProcessorService.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>CaptureSys.ScriptExecutionService.Api</RootNamespace>
+    <AssemblyName>CaptureSys.ScriptExecutionService.Api</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ScriptExecutionService.Application\ScriptExecutionService.Application.csproj" />
+    <ProjectReference Include="..\ScriptExecutionService.Infrastructure\ScriptExecutionService.Infrastructure.csproj" />
+    <ProjectReference Include="..\ScriptExecutionService.Domain\ScriptExecutionService.Domain.csproj" />
+    <ProjectReference Include="..\..\..\shared\Shared.csproj" />
+  </ItemGroup>
+</Project>

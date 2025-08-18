@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>CaptureSys.ImageProcessorService.Api</RootNamespace>
+    <AssemblyName>CaptureSys.ImageProcessorService.Api</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ImageProcessorService.Application\ImageProcessorService.Application.csproj" />
+    <ProjectReference Include="..\ImageProcessorService.Infrastructure\ImageProcessorService.Infrastructure.csproj" />
+    <ProjectReference Include="..\ImageProcessorService.Domain\ImageProcessorService.Domain.csproj" />
+    <ProjectReference Include="..\..\..\shared\Shared.csproj" />
+  </ItemGroup>
+
+</Project>

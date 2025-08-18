@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>CaptureSys.Gateway.Auth.Api</RootNamespace>
+    <AssemblyName>CaptureSys.Gateway.Auth.Api</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Gateway.Auth.Application\Gateway.Auth.Application.csproj" />
+    <ProjectReference Include="..\Gateway.Auth.Infrastructure\Gateway.Auth.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\..\shared\Shared.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -39,6 +39,8 @@ Log.Information("Gateway available at: http://localhost:5002");
 Log.Information("Routes available:");
 Log.Information("  POST http://localhost:5002/ingestion/Documents/upload -> IngestionService");
 Log.Information("  POST http://localhost:5002/ocr/Ocr/process -> OcrService");
+Log.Information("  POST http://localhost:5002/auth/Auth/login -> Gateway.Auth");
+Log.Information("  GET http://localhost:5002/export/Export -> ExportService");
 Log.Information("  GET http://localhost:5002/ingestion-swagger/index.html -> Swagger");
 
 app.Run();

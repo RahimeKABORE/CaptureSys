@@ -1,0 +1,6 @@
+@AutoLearningService.Api_HostAddress = http://localhost:5239
+
+GET {{AutoLearningService.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

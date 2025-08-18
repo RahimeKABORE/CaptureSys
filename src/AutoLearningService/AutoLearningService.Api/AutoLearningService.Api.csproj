@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>CaptureSys.AutoLearningService.Api</RootNamespace>
+    <AssemblyName>CaptureSys.AutoLearningService.Api</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AutoLearningService.Application\AutoLearningService.Application.csproj" />
+    <ProjectReference Include="..\AutoLearningService.Infrastructure\AutoLearningService.Infrastructure.csproj" />
+    <ProjectReference Include="..\AutoLearningService.Domain\AutoLearningService.Domain.csproj" />
+    <ProjectReference Include="..\..\..\shared\Shared.csproj" />
+  </ItemGroup>
+
+</Project>

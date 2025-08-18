@@ -1,97 +1,106 @@
-# CaptureSys - Intelligent Document Capture System
+# CaptureSys v1.0.0
 
-> Système moderne de capture intelligente de documents pour remplacer Captiva, basé sur .NET 9 et Clean Architecture.
-
-## 🚀 Démarrage rapide
-
-### 1. Initialisation Git
-
-```bash
-# Windows (PowerShell)
-.\scripts\init-git.ps1
-
-# Linux/Mac
-chmod +x scripts/init-git.sh
-./scripts/init-git.sh
-```
-
-### 2. Configuration du dépôt distant
-
-```bash
-git remote add origin https://github.com/votre-org/capturesys.git
-git push -u origin main
-git push --all origin
-```
-
-### 3. Lancement avec Docker
-
-```bash
-cd docker
-docker-compose up -d
-```
+🚀 **Plateforme complète de capture documentaire avec architecture microservices**
 
 ## 🏗️ Architecture
 
-### Microservices
-- **ApiGateway** - Point d'entrée REST principal (port 8080)
-- **Gateway.Auth** - Service d'authentification JWT (port 8081)
-- **CompletionUI** - Interface Blazor de validation OCR (port 8082)  
-- **AdministrationUI** - Interface d'administration (port 8083)
-- **IngestionService** - Ingestion de documents
-- **OcrService** - Extraction OCR avec Tesseract
-- **ClassificationService** - Classification de documents ML.NET
-- **ExtractionService** - Extraction de champs par zones
-- **ExportService** - Export vers PostgreSQL/CSV/S3
-- **Worker.Orchestrator** - Orchestrateur de traitement
+### Services Core (5)
+| Service | Port | Description | Status |
+|---------|------|-------------|---------|
+| **IngestionService** | 5001 | Ingestion de documents | ✅ |
+| **OcrService** | 5002 | Reconnaissance optique | ✅ |
+| **ExtractionService** | 5003 | Extraction de données | ✅ |
+| **ClassificationService** | 5004 | Classification automatique | ✅ |
+| **ExportService** | 5005 | Export multi-format | ✅ |
 
-### Infrastructure
-- **PostgreSQL** - Base de données principale
-- **RabbitMQ** - Message broker pour communication async
-- **Redis** - Cache distribué
+### Infrastructure (3)
+| Service | Port | Description | Status |
+|---------|------|-------------|---------|
+| **ApiGateway** | 5000 | Passerelle principale | ✅ |
+| **Gateway.Auth** | 5006 | Authentification JWT | ✅ |
+| **Worker.Orchestrator** | 5007 | Orchestrateur de workflow | ✅ |
 
-## 🌿 Workflow Git
+### Services Spécialisés (4)
+| Service | Port | Description | Status |
+|---------|------|-------------|---------|
+| **ImageProcessorService** | 5008 | Préprocessing d'images | ✅ |
+| **AutoLearningService** | 5009 | Apprentissage automatique | ✅ |
+| **ScriptExecutionService** | 5010 | Exécution de scripts | ✅ |
+| **TimerService** | 5011 | Tâches planifiées CRON | ✅ |
 
-```
-main ← develop ← feature/xxx
-    ← release/vX.X.X
-```
+## 🚀 Démarrage rapide
 
-### Branches
-- `main` - Production stable
-- `develop` - Intégration continue  
-- `feature/*` - Développement de fonctionnalités
-- `release/*` - Préparation des versions
-- `hotfix/*` - Corrections urgentes
+```bash
+# Cloner le repository
+git clone https://github.com/VotreUsername/CaptureSys.git
+cd CaptureSys
 
-## 📦 Structure du projet
+# Compiler tous les services
+dotnet build
 
-```
-CaptureSys/
-├── src/                    # Microservices
-├── shared/                 # Code partagé
-├── recognition-projects/   # Projets OCR configurables
-├── tests/                  # Tests d'intégration
-├── docker/                 # Configuration Docker
-├── scripts/                # Scripts utilitaires
-└── docs/                   # Documentation
+# Démarrer un service spécifique
+dotnet run --project src/ApiGateway
+dotnet run --project src/IngestionService/IngestionService.Api
+# ... etc pour les autres services
 ```
 
 ## 🧪 Tests
 
 ```bash
-# Tests unitaires
-dotnet test
-
-# Tests d'intégration
-dotnet test tests/Integration/
-
-# Tests de charge
-dotnet test tests/LoadTests/
+# Tester les services (exemples)
+curl http://localhost:5000/api/gateway          # ApiGateway
+curl http://localhost:5001/api/ingestion        # IngestionService
+curl http://localhost:5002/api/ocr              # OcrService
+curl http://localhost:5008/api/ImageProcessor   # ImageProcessorService
+curl http://localhost:5011/api/Timer            # TimerService
 ```
 
-## 📖 Documentation
+## 🏛️ Principes architecturaux
 
-- [Architecture](docs/architecture.md)
-- [API Reference](docs/api/)
-- [Configuration OCR](docs/ocr-setup.md)
-- [Déploiement](docs/deployment.md)
+- ✅ **Clean Architecture** sur tous les services
+- ✅ **Pattern Result** pour la gestion d'erreurs
+- ✅ **Logging** intégré avec ILogger
+- ✅ **APIs REST** complètes et documentées
+- ✅ **Jobs asynchrones** pour les traitements longs
+- ✅ **Microservices indépendants** et découplés
+
+## 📁 Structure du projet
+
+```
+CaptureSys/
+├── shared/                    # Composants partagés
+├── src/
+│   ├── ApiGateway/           # Passerelle principale
+│   ├── IngestionService/     # Service d'ingestion
+│   ├── OcrService/           # Service OCR
+│   ├── ExtractionService/    # Service d'extraction
+│   ├── ClassificationService/ # Service de classification
+│   ├── ExportService/        # Service d'export
+│   ├── Gateway.Auth/         # Service d'authentification
+│   ├── Worker.Orchestrator/  # Orchestrateur
+│   ├── ImageProcessorService/ # Traitement d'images
+│   ├── AutoLearningService/  # Apprentissage automatique
+│   ├── ScriptExecutionService/ # Exécution de scripts
+│   └── TimerService/         # Planificateur CRON
+└── README.md
+```
+
+## 🔧 Technologies
+
+- **.NET 9.0** - Framework principal
+- **ASP.NET Core** - APIs REST
+- **Quartz.NET** - Planification de tâches
+- **Clean Architecture** - Pattern architectural
+- **Result Pattern** - Gestion d'erreurs
+
+## 📈 Prochaines étapes
+
+- [ ] Interfaces utilisateur (CompletionUI, AdministrationUI)
+- [ ] Intégration des services via l'orchestrateur
+- [ ] Tests de bout en bout
+- [ ] Documentation technique détaillée
+- [ ] CI/CD Pipeline
+
+---
+
+**CaptureSys v1.0.0** - Architecture microservices complète et fonctionnelle ! 🎯
